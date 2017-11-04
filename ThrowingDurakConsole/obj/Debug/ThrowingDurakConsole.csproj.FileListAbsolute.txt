@@ -1,0 +1,7 @@
+C:\Users\Dmitry\Desktop\ThrowingDurakConsole\ThrowingDurakConsole\bin\Debug\ThrowingDurakConsole.exe.config
+C:\Users\Dmitry\Desktop\ThrowingDurakConsole\ThrowingDurakConsole\bin\Debug\ThrowingDurakConsole.exe
+C:\Users\Dmitry\Desktop\ThrowingDurakConsole\ThrowingDurakConsole\bin\Debug\ThrowingDurakConsole.pdb
+C:\Users\Dmitry\Desktop\ThrowingDurakConsole\ThrowingDurakConsole\obj\Debug\ThrowingDurakConsole.csprojResolveAssemblyReference.cache
+C:\Users\Dmitry\Desktop\ThrowingDurakConsole\ThrowingDurakConsole\obj\Debug\ThrowingDurakConsole.csproj.CoreCompileInputs.cache
+C:\Users\Dmitry\Desktop\ThrowingDurakConsole\ThrowingDurakConsole\obj\Debug\ThrowingDurakConsole.exe
+C:\Users\Dmitry\Desktop\ThrowingDurakConsole\ThrowingDurakConsole\obj\Debug\ThrowingDurakConsole.pdb
