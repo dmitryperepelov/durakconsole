@@ -8,15 +8,19 @@ namespace ThrowingDurakConsole
 {
     class Game
     {
+        public List<int> tabel = new List<int>();
 
-        private int whoseTurn = 0; // переменная показывает, чей ход
+        private int whoseTurn; // переменная показывает, чей ход
 
         public int WhoseTurn { get; set; }
 
         Deck d = new Deck();
-       // d.Shuffle();
-            Player p = new Player();
+        Player p = new Player();
         ComputerPlayer c = new ComputerPlayer();
+
+        private int playerChoice;
+
+        public int PlayerChoice { get; set; }
 
         public void GiveCard()
         {
@@ -65,10 +69,39 @@ namespace ThrowingDurakConsole
             d.Shuffle();
             
            for (int i = 0; i < 36; i++)
-            {
-                Console.WriteLine(d.deckList[i]);
-            }
+           {
+               Console.WriteLine(d.deckList[i]);
+           }
             Console.ReadKey();
+        }
+
+        public void GameProcess()
+        {
+            var rnd = new Random();
+            WhoseTurn = rnd.Next(0, 1);
+            while ((d.deckList.Count > 0) && ((p.myCards.Count > 0) || (c.CPUcards.Count > 0)))
+            {
+                GiveCard();
+                if (WhoseTurn == 0)
+                {
+                    do
+                    {
+                        PlayerChoice = Console.Read();
+                        c.Defence();
+                    }
+                    while (PlayerChoice != 0);
+                }
+                else
+                {
+                    do
+                    {
+                        c.Attack();
+                        PlayerChoice = Console.Read();
+                    }
+                    while (PlayerChoice != 0);
+                }
+            }
+                
         }
 
     }

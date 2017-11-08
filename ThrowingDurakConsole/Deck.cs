@@ -12,7 +12,9 @@ namespace ThrowingDurakConsole
 
         public List<int> deckList = new List<int>();
 
-        //int trump;
+        private int trump;
+
+        public int Trump { get; set; }
 
         public Deck()
         {
@@ -58,6 +60,7 @@ namespace ThrowingDurakConsole
                 Swap(ref deck[i], ref deck[value]);
             }
 
+            Trump = rndValue.Next(0, 4);
             DeckListInit();
             deck = null;
             GC.Collect();
