@@ -8,5 +8,18 @@ namespace ThrowingDurakConsole
 {
     class ComputerPlayer
     {
+        private List<Card> CPUCards = new List<Card>();
+
+        public List<Card> CPUCARDS { get; set; }
+
+        public void Attack()
+        {
+
+        }
+
+        public void Defense()
+        {
+
+        }
     }
 }

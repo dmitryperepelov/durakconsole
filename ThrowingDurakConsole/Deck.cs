@@ -9,6 +9,9 @@ namespace ThrowingDurakConsole
     public class Deck
     {
         public Card[] deck = new Card[36];
+
+        public List<Card> deckList = new List<Card>();
+
         int trump;
 
         public Deck()
@@ -67,6 +70,16 @@ namespace ThrowingDurakConsole
                 else
                     deck[i].IsTrump = false;
             }
+            DeckListInit();
+        }
+
+        public void DeckListInit()
+        {
+            deckList.Clear();
+            for (int i = 0; i < 36; i++)
+            {
+                deckList.Add(deck[i]);
+            }
         }
 
         public void Shuffle()
@@ -84,7 +97,10 @@ namespace ThrowingDurakConsole
                 int value = rndValue.Next(0, i);
                 Swap(ref deck[i], ref deck[value]);
             }
+            DeckListInit();
 
+            deck = null;
+            GC.Collect();
         }   
     }
 }
