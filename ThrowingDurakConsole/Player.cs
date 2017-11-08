@@ -8,9 +8,9 @@ namespace ThrowingDurakConsole
 {
     class Player
     {
-        private List<Card> myCards = new List<Card>();
+        public List<int> myCards = new List<int>();
 
-        public List<Card> MyCards { get; set; }
+        //public List<int> MyCards { get; set; }
 
         /*public Player()
         {

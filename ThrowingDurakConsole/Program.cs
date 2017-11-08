@@ -11,13 +11,12 @@ namespace ThrowingDurakConsole
         static void Main(string[] args)
         {
             var g = new Game();
-            var l = new Deck();
-            g.TestShuffle();
+           
+            //g.TestShuffle();
 
             g.TestGiveCard();
 
-            for (int i = 0; i < l.deckList.Count - 1; i++)
-                Console.WriteLine(l.deckList[i]);
+            
         }
     }
 }

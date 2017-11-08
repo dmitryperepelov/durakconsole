@@ -13,22 +13,24 @@ namespace ThrowingDurakConsole
 
         public int WhoseTurn { get; set; }
 
+        Deck d = new Deck();
+       // d.Shuffle();
+            Player p = new Player();
+        ComputerPlayer c = new ComputerPlayer();
+
         public void GiveCard()
         {
-            var player = new Player();
-            var cpu = new ComputerPlayer();
-            var deck = new Deck();
-
-            for (int i = 0; i < 6; i++)
+            
+            Console.ReadKey();
+            while (p.myCards.Count < 6)
             {
-                player.MyCards[i] = deck.deckList[deck.deckList.Count - 1];
-                deck.deckList.RemoveAt(deck.deckList.Count - 1);
+                p.myCards.Add(d.deckList[d.deckList.Count - 1]);
+                d.deckList.RemoveAt(d.deckList.Count - 1);
             }
-
-            for (int i = 0; i < 6; i++)
+            while (c.CPUcards.Count < 6)
             {
-                cpu.CPUCARDS.Add(deck.deckList[deck.deckList.Count - 1]);
-                deck.deckList.RemoveAt(deck.deckList.Count - 1);
+                c.CPUcards.Add(d.deckList[d.deckList.Count - 1]);
+                d.deckList.RemoveAt(d.deckList.Count - 1);
             }
         }
 
@@ -38,54 +40,36 @@ namespace ThrowingDurakConsole
 
             Console.ReadKey();
 
-            var d = new Deck();
-            var p = new Player();
-            var cpu = new ComputerPlayer();
-
-            d.Shuffle();
+            d.Shuffle();                                            // Здесь происходит тасовка! Перенести
             GiveCard();
-            for (int i = 0; i < p.MyCards.Count - 1; i++)
+            for (int i = 0; i < p.myCards.Count; i++)
             {
-                Console.Write(p.MyCards[i]);
+                Console.Write(p.myCards[i]);
                 Console.WriteLine(" ");
             }
             Console.ReadKey();
             Console.WriteLine(" ");
     
-            for (int i = 0; i < cpu.CPUCARDS.Count - 1; i++)
+            for (int i = 0; i < c.CPUcards.Count; i++)
             {
-                Console.Write(cpu.CPUCARDS[i]);
+                Console.Write(c.CPUcards[i]);
                 Console.WriteLine(" ");
             }
+            Console.ReadKey();
         }
 
         public void TestShuffle()
         {
             var d = new Deck();
-            // d.Shuffle();
-            for (int i = 0; i < 36; i++)
-            {
-                Console.Write(d.deckList[i].Cardid);
-                Console.Write(" ");
-                Console.Write(d.deckList[i].Value);
-                Console.Write(" ");
-                Console.WriteLine(d.deckList[i].Suit);
-            }
-
-            Console.ReadKey();
-
+            
             d.Shuffle();
-            Console.Clear();
-            for (int i = 0; i < 36; i++)
+            
+           for (int i = 0; i < 36; i++)
             {
-                Console.Write(d.deckList[i].Cardid);
-                Console.Write(" ");
-                Console.Write(d.deckList[i].Value);
-                Console.Write(" ");
-                Console.WriteLine(d.deckList[i].Suit);
+                Console.WriteLine(d.deckList[i]);
             }
             Console.ReadKey();
-
         }
+
     }
 }
