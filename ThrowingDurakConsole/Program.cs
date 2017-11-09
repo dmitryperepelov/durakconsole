@@ -10,13 +10,13 @@ namespace ThrowingDurakConsole
     {
         static void Main(string[] args)
         {
-            var g = new Game();
-           
+            Game g = new Game();
+
             //g.TestShuffle();
 
-            g.TestGiveCard();
+            //g.TestGiveCard();
 
-            
+            g.GameProcess();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,11 @@ namespace ThrowingDurakConsole
         private int playerChoice;
 
         public int PlayerChoice { get; set; }
+
+        public Game()
+        {
+            tabel = new List<int>();
+        }
 
         public void GiveCard()
         {
@@ -77,15 +83,26 @@ namespace ThrowingDurakConsole
 
         public void GameProcess()
         {
+            Console.WriteLine("1");
             var rnd = new Random();
+            d.Shuffle();
+            Console.WriteLine(d.deckList.Count);
+            GiveCard();
             WhoseTurn = rnd.Next(0, 1);
+
+            for (int i = 0; i < p.myCards.Count; i++)
+                Console.WriteLine(p.myCards[i]);
+            Console.ReadKey();
+
             while ((d.deckList.Count > 0) && ((p.myCards.Count > 0) || (c.CPUcards.Count > 0)))
             {
+                Console.WriteLine("2");
                 GiveCard();
                 if (WhoseTurn == 0)
                 {
                     do
                     {
+                        Console.ReadKey();
                         PlayerChoice = Console.Read();
                         c.Defence();
                     }
@@ -95,6 +112,7 @@ namespace ThrowingDurakConsole
                 {
                     do
                     {
+                        Console.ReadKey();
                         c.Attack();
                         PlayerChoice = Console.Read();
                     }

@@ -50,7 +50,37 @@ namespace ThrowingDurakConsole
 
         public void Defence()
         {
-
+            int minCard = CPUcards[0];
+            bool beat = false;
+            for (int i = 0; i < CPUcards.Count - 1; i++)
+            {
+                if ((game.tabel[game.tabel.Count - 1] / 10 < CPUcards[i] / 10) && 
+                    (CPUcards[i] < minCard) && 
+                    ((CPUcards[i] % 10) != deck.Trump))
+                {
+                    minCard = CPUcards[i];
+                    beat = true;
+                    game.tabel.Add(minCard);
+                }
+            }
+            if (!beat)
+            {
+                for (int i = 0; i < CPUcards.Count - 1; i++)
+                {
+                    if (((game.tabel[game.tabel.Count - 1] % 10) != deck.Trump) ||
+                        ((game.tabel[game.tabel.Count - 1] % 10) == deck.Trump) && 
+                        ((CPUcards[i] / 10) > (game.tabel[game.tabel.Count - 1] / 10)))
+                    {
+                        beat = true;
+                        game.tabel.Add(CPUcards[i]);
+                    }
+                }
+            }
+            if (!beat)
+            {
+                for (int i = 0; i < game.tabel.Count - 1; i++)
+                    CPUcards.Add(game.tabel[i]);
+            }
         }
     }
 }
